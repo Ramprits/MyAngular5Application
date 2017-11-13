@@ -30,6 +30,7 @@ import { CountryService } from './core/country.service';
 import { ConfigService, Error404Component } from './shared/index';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
+import { LoginComponent } from './components/user/login/login.component';
 Raven
   .config('https://f88b3d205a9042d5b1a069be1baf9c31@sentry.io/241753')
   .install();
@@ -52,7 +53,7 @@ export function provideErrorHandler() {
   declarations: [
     AppComponent, HomeComponent, BookComponent, FielderrorsComponent, DashboardComponent,
     CustomerComponent, CustomerDetailComponent, FruitComponent, ProductComponent,
-    AddCustomerComponent, Error404Component, AuthorComponent, EmployeeComponent, AddEmployeeComponent],
+    AddCustomerComponent, Error404Component, AuthorComponent, EmployeeComponent, AddEmployeeComponent, LoginComponent],
   imports: [
     HttpModule, CheckboxModule, FormsModule, ReactiveFormsModule, BrowserModule, AppRoutingModule,
     BrowserAnimationsModule, HttpClientModule, MenuModule, PanelModule, OverlayPanelModule, ChartModule,

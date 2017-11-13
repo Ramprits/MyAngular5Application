@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { MenuItem, MenuModule } from 'primeng/primeng';
 import { Menu } from 'primeng/components/menu/menu';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, Event, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -13,6 +13,7 @@ declare var jQuery: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
+  loading: boolean;
 
   menuItems: MenuItem[];
   miniMenuItems: MenuItem[];
@@ -21,8 +22,23 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('smallMenu') smallMenu: Menu;
   menuVisible = false;
   constructor(private router: Router) {
+    router.events.subscribe((routerEvent: Event) => {
+      this.checkRouterEvent(routerEvent);
+    });
   }
+  checkRouterEvent(routerEvent: Event): void {
+    if (routerEvent instanceof NavigationStart) {
+      this.loading = true;
+      console.log(this.loading);
+    }
 
+    if (routerEvent instanceof NavigationEnd ||
+      routerEvent instanceof NavigationCancel ||
+      routerEvent instanceof NavigationError) {
+      this.loading = false;
+      console.log(this.loading);
+    }
+  }
   ngOnInit() {
 
     const handleSelected = function (event) {
