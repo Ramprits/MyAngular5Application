@@ -37,6 +37,9 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.loading = false;
     }
   }
+  login() {
+    confirm('Are you sure want to login');
+  }
   ngOnInit() {
 
     const handleSelected = function (event) {

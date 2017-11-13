@@ -27,7 +27,6 @@ export class CustomerComponent implements OnInit {
   onRowSelect(event) {
     this.customer = this.cloneCustomer(event.data);
     this.displayDialog = true;
-    console.log(this.customer);
   }
 
   cloneCustomer(c: Customer): Customer {

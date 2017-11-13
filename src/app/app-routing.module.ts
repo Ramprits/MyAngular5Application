@@ -6,6 +6,7 @@ import {
 } from './components/index';
 import { AuthorComponent } from './components/author/author.component';
 import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
+import { LoginComponent } from './components/user/login/login.component';
 
 const routes: Routes = [
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'authors', component: AuthorComponent },
   { path: 'addEmployee', component: AddEmployeeComponent },
   { path: 'employees', component: EmployeeComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' }
 
 ];
