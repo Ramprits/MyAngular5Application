@@ -29,14 +29,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   checkRouterEvent(routerEvent: Event): void {
     if (routerEvent instanceof NavigationStart) {
       this.loading = true;
-      console.log(this.loading);
     }
 
     if (routerEvent instanceof NavigationEnd ||
       routerEvent instanceof NavigationCancel ||
       routerEvent instanceof NavigationError) {
       this.loading = false;
-      console.log(this.loading);
     }
   }
   ngOnInit() {

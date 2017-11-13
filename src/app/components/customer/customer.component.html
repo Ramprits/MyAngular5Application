@@ -1,24 +1,51 @@
-<p-panel header="Customers">
-  <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/AddNewCustomer']">Add New Customer</button>
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead class="bg-primary text-light">
-        <tr class="text-left">
-          <td>Company Name</td>
-          <td>Contact Name</td>
-          <td>Contact Title</td>
-          <td>Address</td>
-        </tr>
-      </thead>
-      <tr *ngFor="let customer of  (customers ? customers.slice(0,100): []); let i = index" class="text-left ">
-        <td>
-          <a [routerLink]="[ '/customers', customer.customerId] ">
-            {{customer.companyName}}</a>
-        </td>
-        <td>{{customer.contactName}}</td>
-        <td>{{customer.contactTitle}}</td>
-        <td>{{customer.address}}</td>
-      </tr>
-    </table>
-  </div>
+<p-panel header="Customer List">
+  <p-dataTable [value]="customers" selectionMode="single" [(selection)]="selectedCustomer" (onRowSelect)="onRowSelect($event)"
+    [paginator]="true" rows="15" [reorderableColumns]="true" [resizableColumns]="true" [scrollable]="true" [responsive]="true">
+    <p-column field="companyName" header="Company Name" [sortable]="true"></p-column>
+    <p-column field="contactName" header="Contact Name" [sortable]="true"></p-column>
+    <p-column field="contactTitle" header="Contact Title" [sortable]="true"></p-column>
+    <p-column field="address" header="Address" [sortable]="true"></p-column>
+    <p-footer>
+      <div class="ui-helper-clearfix" style="width:100%">
+      </div>
+    </p-footer>
+  </p-dataTable>
 </p-panel>
+
+
+<p-dialog header="Customer Details" [(visible)]="displayDialog" [responsive]="true" [width]="500" [responsive]="true" modal="modal">
+  <div class="container" *ngIf="customer">
+    <form>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Company Name:</label>
+        <div class="col-sm-8">
+          <label class="col-form-label"> {{customer.companyName}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Contact Name:</label>
+        <div class="col-sm-8">
+          <label class="col-form-label"> {{customer.contactName}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Contact Title:</label>
+        <div class="col-sm-8">
+          <label class="col-form-label"> {{customer.contactTitle}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Address:</label>
+        <div class="col-sm-8">
+          <label class="col-form-label"> {{customer.address}}</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+      <button type="button" pButton icon="fa-close" label="Delete" (click)="displayDialog=false" class="ui-button-danger"></button>
+      <button type="button" pButton icon="fa-check" label="Save" (click)="displayDialog=false"></button>
+    </div>
+  </p-footer>
+</p-dialog>
