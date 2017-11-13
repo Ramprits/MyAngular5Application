@@ -10,7 +10,9 @@ import { ConfirmationService } from 'primeng/components/common/api';
 @Component({
   selector: 'b-book',
   templateUrl: './book.component.html',
-  styles: [`p-dataTable >>> .ui-datatable-footer {min-height: 60px;}.ui-grid-row{margin: 1em;}`]
+  styles: [`p-dataTable >>> .ui-datatable-footer {min-height: 60px;}
+           .ui-grid-row{margin: 1em;}
+           p-dialog>>> .ui-dialog-titlebar{background-color:rgb(224, 229, 233);}`]
 })
 export class BookComponent implements OnInit {
   msgs: Message[];

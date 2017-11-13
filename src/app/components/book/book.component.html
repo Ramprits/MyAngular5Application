@@ -12,22 +12,22 @@
   </p-dataTable>
 </p-panel>
 <p-contextMenu #cm [model]="items"></p-contextMenu>
-<p-dialog header="Book Details" [(visible)]="displayDialog" [responsive]="true" [responsive]="true" modal="modal">
+<p-dialog header="Book Details" [(visible)]="displayDialog" showEffect="fade" [responsive]="true" modal="modal">
   <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="book">
     <div class="ui-grid-row">
       <div class="ui-grid-col-4">
         <label for="Name">Name</label>
       </div>
-      <div class="ui-grid-col-8">
-        <input pInputText id="Name" name="Name" [(ngModel)]="book.Name" />
+      <div class="ui-grid-col-4">
+        <span>{{book.Name}}</span>
       </div>
     </div>
     <div class="ui-grid-row">
       <div class="ui-grid-col-4">
         <label for="Description">Description</label>
       </div>
-      <div class="ui-grid-col-8">
-        <input pInputText id="Description" name="Description" [(ngModel)]="book.Description" />
+      <div class="ui-grid-col-4">
+        <span> {{book.Description}}</span>
       </div>
     </div>
   </div>
