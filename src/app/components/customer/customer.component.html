@@ -1,6 +1,7 @@
 <p-panel header="Customer List">
-  <p-dataTable [value]="customers" selectionMode="single" [(selection)]="selectedCustomer" (onRowSelect)="onRowSelect($event)"
-    [paginator]="true" rows="15" [reorderableColumns]="true" [resizableColumns]="true" [scrollable]="true" [responsive]="true">
+  <p-dataTable [value]="customers" selectionMode="single" [(selection)]="selectedCustomer" [rowsPerPageOptions]="[5,10,20]"
+    (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [reorderableColumns]="true" [resizableColumns]="true"
+    [scrollable]="true" [responsive]="true">
     <p-column field="companyName" header="Company Name" [sortable]="true"></p-column>
     <p-column field="contactName" header="Contact Name" [sortable]="true"></p-column>
     <p-column field="contactTitle" header="Contact Title" [sortable]="true"></p-column>
@@ -11,10 +12,7 @@
     </p-footer>
   </p-dataTable>
 </p-panel>
-
-
-<p-dialog header="Customer Details" [(visible)]="displayDialog" [width]="500" showEffect="fade" [responsive]="true"
-  modal="modal">
+<p-dialog header="Customer Details" [(visible)]="displayDialog" [width]="500" showEffect="fade" [responsive]="true" modal="modal">
   <div class="container" *ngIf="customer">
     <form>
       <div class="form-group row">
