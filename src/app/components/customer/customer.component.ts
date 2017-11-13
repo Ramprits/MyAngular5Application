@@ -7,7 +7,8 @@ import { ICustomer } from '../index';
 
 @Component({
   selector: 'b-customer',
-  templateUrl: './customer.component.html'
+  templateUrl: './customer.component.html',
+  styles: [`p-dialog>>> .ui-dialog-titlebar{background-color:rgb(224, 229, 233);}`]
 })
 export class CustomerComponent implements OnInit {
   customers: Customer[];
