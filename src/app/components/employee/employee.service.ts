@@ -22,7 +22,7 @@ export class EmployeeService {
     }).catch(this.handleError);
   }
   insertEmployee(employee: IEmployee): Observable<IEmployee | TrackerError> {
-    return this.httpClient.post<IEmployeeResponse>(this.baseUrl + `/Employees`, employee)
+    return this.httpClient.post<IEmployeeResponse>(this.baseUrl + `/employees`, employee)
       .map((data) => {
         return data.employee;
       });

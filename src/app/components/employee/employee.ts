@@ -5,6 +5,7 @@ export interface IEmployee {
     mobile: string;
     gender: string;
     address: string;
+    image: string;
 }
 
 export interface IEmployeeResponse {
