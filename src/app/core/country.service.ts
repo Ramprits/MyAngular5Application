@@ -9,12 +9,6 @@ export class CountryService {
   _baseUrl = 'assets/data/countries.json';
   constructor(private httpClient: HttpClient) { }
 
-  getCountries(): Observable<ICountry[] | TrackerError> {
-    return this.httpClient.get(this._baseUrl).map((countries: ICountry[]) => {
-      return countries;
-    }).catch(this.handleError);
-  }
-
   private handleError(error: HttpErrorResponse): Observable<TrackerError> {
     const dataError = new TrackerError();
     dataError.errorNumber = error.status;

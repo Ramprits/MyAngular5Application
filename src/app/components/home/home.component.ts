@@ -10,17 +10,11 @@ import { ICountry } from '../../core/country';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  countries: SelectItem[] | TrackerError;
   selectedCar: string;
   constructor(private title: Title, private countryService: CountryService) {
     this.title.setTitle('Home');
   }
   ngOnInit() {
-    this.countryService.getCountries().subscribe(country => { this.countries = country; });
   }
-  onChange(data) {
-    if (data.value === 'DZ') {
-      confirm('Are you sure want to procced ?');
-    }
-  }
+
 }

@@ -3,10 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {
-  HomeComponent, BookComponent, FruitService, FruitComponent, BookService, DashboardComponent,
-  CustomerComponent, CustomerService, CustomerDetailComponent, AddCustomerComponent, ProductComponent, EmployeeService
-} from './components/index';
+import { HomeComponent, DashboardComponent } from './components/index';
 import {
   MenuModule, PanelModule, ChartModule, CheckboxModule, OverlayPanelModule, InputTextModule,
   ButtonModule, InputMaskModule, InputTextareaModule, EditorModule, CalendarModule, RadioButtonModule,
@@ -22,16 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment.prod';
 import { FielderrorsComponent } from './core/fielderrors/fielderrors.component';
-import { CustomerNewService } from './components/customer/customer-new.service';
 import { HttpModule } from '@angular/http';
 import { LoggerService } from './core/index';
-import { AuthorComponent, AuthorService } from './components/author/index';
 import { CountryService } from './core/country.service';
 import { ConfigService, Error404Component } from './shared/index';
-import { EmployeeComponent } from './components/employee/employee.component';
-import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { AuthService } from './components/user/auth.service';
+
 Raven
   .config('https://f88b3d205a9042d5b1a069be1baf9c31@sentry.io/241753')
   .install();
@@ -52,9 +44,8 @@ export function provideErrorHandler() {
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, BookComponent, FielderrorsComponent, DashboardComponent,
-    CustomerComponent, CustomerDetailComponent, FruitComponent, ProductComponent,
-    AddCustomerComponent, Error404Component, LoginComponent, AuthorComponent, EmployeeComponent, AddEmployeeComponent, LoginComponent],
+    AppComponent, HomeComponent, FielderrorsComponent, DashboardComponent,
+    Error404Component],
   imports: [
     HttpModule, CheckboxModule, FormsModule, ReactiveFormsModule, BrowserModule, AppRoutingModule,
     BrowserAnimationsModule, HttpClientModule, MenuModule, PanelModule, OverlayPanelModule, ChartModule,
@@ -65,8 +56,7 @@ export function provideErrorHandler() {
     GalleriaModule, AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule.enablePersistence()],
 
   providers: [{ provide: ErrorHandler, useFactory: provideErrorHandler },
-    BookService, CustomerService, FruitService, CustomerNewService,
-    LoggerService, ConfirmationService, AuthService, AuthorService, CountryService, ConfigService, EmployeeService],
+    LoggerService, ConfirmationService, CountryService, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
