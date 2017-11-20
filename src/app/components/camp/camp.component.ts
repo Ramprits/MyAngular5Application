@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'b-camp',
-  templateUrl: './camp.component.html',
-  styleUrls: ['./camp.component.scss']
+  templateUrl: './camp.component.html'
 })
 export class CampComponent implements OnInit {
 
