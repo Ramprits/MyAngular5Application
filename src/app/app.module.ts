@@ -23,6 +23,8 @@ import { HttpModule } from '@angular/http';
 import { LoggerService } from './core/index';
 import { CountryService } from './core/country.service';
 import { ConfigService, Error404Component } from './shared/index';
+import { CampComponent } from './components/camp/camp.component';
+import { CampService } from './components/camp/camp.service';
 
 Raven
   .config('https://f88b3d205a9042d5b1a069be1baf9c31@sentry.io/241753')
@@ -45,7 +47,8 @@ export function provideErrorHandler() {
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, FielderrorsComponent, DashboardComponent,
-    Error404Component],
+    Error404Component,
+    CampComponent],
   imports: [
     HttpModule, CheckboxModule, FormsModule, ReactiveFormsModule, BrowserModule, AppRoutingModule,
     BrowserAnimationsModule, HttpClientModule, MenuModule, PanelModule, OverlayPanelModule, ChartModule,
@@ -56,7 +59,7 @@ export function provideErrorHandler() {
     GalleriaModule, AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule.enablePersistence()],
 
   providers: [{ provide: ErrorHandler, useFactory: provideErrorHandler },
-    LoggerService, ConfirmationService, CountryService, ConfigService],
+    LoggerService, ConfirmationService, CountryService, ConfigService, CampService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
