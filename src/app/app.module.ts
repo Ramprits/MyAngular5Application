@@ -5,12 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent, DashboardComponent } from './components/index';
 import {
-  MenuModule, PanelModule, ChartModule, CheckboxModule, OverlayPanelModule, InputTextModule,
-  ButtonModule, InputMaskModule, InputTextareaModule, EditorModule, CalendarModule, RadioButtonModule,
-  FieldsetModule, DropdownModule, MultiSelectModule, ListboxModule, SpinnerModule, SliderModule,
-  RatingModule, DataTableModule, ContextMenuModule, TabViewModule, DialogModule, StepsModule,
-  ScheduleModule, TreeModule, GMapModule, DataGridModule, TooltipModule, ConfirmationService,
-  ConfirmDialogModule, GrowlModule, DragDropModule, GalleriaModule
+  MenuModule, PanelModule, InputTextModule, ButtonModule, DropdownModule, DataTableModule, ContextMenuModule
 } from 'primeng/primeng';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppRoutingModule } from './app-routing.module';
@@ -50,16 +45,13 @@ export function provideErrorHandler() {
     Error404Component,
     CampComponent],
   imports: [
-    HttpModule, CheckboxModule, FormsModule, ReactiveFormsModule, BrowserModule, AppRoutingModule,
-    BrowserAnimationsModule, HttpClientModule, MenuModule, PanelModule, OverlayPanelModule, ChartModule,
-    InputTextModule, ButtonModule, InputMaskModule, InputTextareaModule, EditorModule, CalendarModule,
-    RadioButtonModule, FieldsetModule, DropdownModule, MultiSelectModule, ListboxModule, SpinnerModule,
-    SliderModule, RatingModule, DataTableModule, ContextMenuModule, TabViewModule, DialogModule, StepsModule,
-    ScheduleModule, TreeModule, GMapModule, DataGridModule, TooltipModule, ConfirmDialogModule, GrowlModule, DragDropModule,
-    GalleriaModule, AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule.enablePersistence()],
+    HttpModule, FormsModule, ReactiveFormsModule, BrowserModule, AppRoutingModule,
+    BrowserAnimationsModule, HttpClientModule, MenuModule, PanelModule,
+    InputTextModule, ButtonModule, DropdownModule, DataTableModule, ContextMenuModule,
+    AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule.enablePersistence()],
 
   providers: [{ provide: ErrorHandler, useFactory: provideErrorHandler },
-    LoggerService, ConfirmationService, CountryService, ConfigService, CampService],
+    LoggerService, CountryService, ConfigService, CampService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

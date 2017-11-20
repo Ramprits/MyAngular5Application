@@ -8,7 +8,7 @@ const routes: Routes = [
 
   { path: 'camps', component: CampComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'home' }
+  { path: '', pathMatch: 'full', redirectTo: 'dashboard' }
 
 ];
 
