@@ -38,7 +38,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
   login() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/user/login']);
   }
   ngOnInit() {
 
