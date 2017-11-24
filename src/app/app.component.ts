@@ -38,7 +38,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
   login() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/user/login']);
   }
   ngOnInit() {
 
@@ -62,27 +62,27 @@ export class AppComponent implements OnInit, AfterViewInit {
       },
       {
         label: 'Books', icon: 'fa-book', routerLink: ['/books'],
-        command: (event) => handleSelected(event), visible: !this.menuVisible
+        command: (event) => handleSelected(event), visible: this.menuVisible
       },
       {
         label: 'Customer', icon: 'fa-tasks', routerLink: ['/customers'],
-        command: (event) => handleSelected(event), visible: !this.menuVisible
+        command: (event) => handleSelected(event), visible: this.menuVisible
       },
       {
         label: 'Author', icon: 'fa-users',
-        routerLink: ['/authors'], command: (event) => handleSelected(event), visible: !this.menuVisible
+        routerLink: ['/authors'], command: (event) => handleSelected(event), visible: this.menuVisible
       },
       {
         label: 'Employee', icon: 'fa-sliders', routerLink: ['/employees'],
-        command: (event) => handleSelected(event), visible: !this.menuVisible
+        command: (event) => handleSelected(event), visible: this.menuVisible
       },
       {
         label: 'Product', icon: 'fa-empire', routerLink: ['/products'],
         command: (event) => handleSelected(event), visible: this.menuVisible
       },
       {
-        label: 'Google Login', icon: 'fa-google', routerLink: ['/products'],
-        command: (event) => handleSelected(event), visible: this.menuVisible
+        label: 'Camp', icon: 'fa-free-code-camp', routerLink: ['/camps'],
+        command: (event) => handleSelected(event), visible: !this.menuVisible
       },
     ];
 
